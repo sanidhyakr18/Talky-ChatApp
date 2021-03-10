@@ -11,5 +11,6 @@
     <color name="primaryBlue">#377DFF</color>
     <color name="primaryBlack">#243443</color>
     <color name="primaryBlueNight">#15172f</color>
-
+    <color name="backgroundWhite">#F7F7F9</color>
+    <color name="colorAccent">#E5E5E5</color>
 </resources>

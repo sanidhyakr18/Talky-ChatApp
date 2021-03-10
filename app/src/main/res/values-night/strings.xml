@@ -2,4 +2,8 @@
 <resources>
     <string name="icon">Icon</string>
     <string name="go_to_sign_up_page">Go to Sign Up Page</string>
+    <string name="cont">Continue</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_in_with_phone_number">Sign in with Phone Number</string>
+    <string name="next">Next</string>
 </resources>
