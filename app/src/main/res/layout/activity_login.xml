@@ -22,7 +22,6 @@
         tools:text="Talky." />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_semi_bold"
@@ -36,7 +35,6 @@
         app:layout_constraintVertical_bias="0.35" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

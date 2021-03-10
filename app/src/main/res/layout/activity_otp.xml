@@ -4,6 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OtpActivity">
+    android:background="@color/backgroundWhite"
+    tools:context=".LoginActivity">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_otp_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/primaryBlack"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        tools:text="Talky." />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semi_bold"
+        android:text="@string/otp_verification"
+        android:textColor="@color/primaryBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_otp_sent_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_light"
+        android:text="@string/otp_sent_to"
+        android:textColor="@color/primaryBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/text_field_border"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="8"
+            android:hint="@string/otp_hint"
+            android:imeActionId="6"
+            android:imeActionLabel="Send"
+            android:imeOptions="actionUnspecified"
+            android:inputType="phone"
+            android:letterSpacing="0.8"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@color/primaryBlack"
+            android:textSize="24sp"
+            app:backgroundTint="@color/backgroundWhite" />
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_resend_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_light"
+        android:text="Didn't Receive OTP? RESEND OTP"
+        android:textColor="@color/primaryBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_verify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:fontFamily="@font/inter_medium"
+        android:padding="16dp"
+        android:text="@string/verify_proceed"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="90dp"
+        app:cornerRadius="8dp"
+        android:enabled="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

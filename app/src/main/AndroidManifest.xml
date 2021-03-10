@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Talky">
-        <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".OtpActivity"/>
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".IntroActivity"
