@@ -7,7 +7,8 @@
     <string name="sign_in_with_phone_number">Sign in with Phone Number</string>
     <string name="next">Next</string>
     <string name="otp_verification">OTP Verification</string>
-    <string name="otp_sent_to">Enter the OTP sent to +91 9999999999</string>
+    <string name="otp_sent_to">Enter the OTP sent to </string>
     <string name="otp_hint">______</string>
     <string name="verify_proceed"><![CDATA[Verify & Proceed]]></string>
+    <string name="instant_validation">(instant validation)</string>
 </resources>

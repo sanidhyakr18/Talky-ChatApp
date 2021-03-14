@@ -40,7 +40,6 @@
         android:layout_gravity="center"
         android:layout_margin="40dp"
         android:background="@drawable/text_field_border"
-        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -56,15 +55,18 @@
             app:ccp_autoDetectCountry="true"
             app:ccp_contentColor="@color/primaryBlack"
             app:ccp_showNameCode="false"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
             tools:ccp_textSize="20sp" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_phone_number"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:ems="8"
             android:hint="@string/phone_number"
+            tools:text="8527303983"
+            android:letterSpacing=".15"
             android:imeActionId="6"
             android:imeActionLabel="Send"
             android:imeOptions="actionUnspecified"

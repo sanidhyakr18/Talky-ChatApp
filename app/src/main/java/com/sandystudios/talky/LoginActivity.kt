@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
         countryCode = findViewById<CountryCodePicker>(R.id.ccp).selectedCountryCodeWithPlus
         phoneNumber = countryCode + etPhoneNumber.text.toString()
 
-        //Add some validation here
         startActivity(Intent(this, OtpActivity::class.java).putExtra(PHONE_NUMBER, phoneNumber))
+        finish()
     }
 }

@@ -22,6 +22,7 @@
         tools:text="Talky." />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_semi_bold"
@@ -39,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_light"
-        android:text="@string/otp_sent_to"
+        tools:text="@string/otp_sent_to"
         android:textColor="@color/primaryBlack"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -54,7 +55,7 @@
         android:layout_gravity="center"
         android:background="@drawable/text_field_border"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +80,21 @@
             android:textColor="@color/primaryBlack"
             android:textSize="24sp"
             app:backgroundTint="@color/backgroundWhite" />
+
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tv_resend_otp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.2"
+        android:textColor="@android:color/holo_red_dark"
+        tools:text="Code Sent!" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_resend_otp"
