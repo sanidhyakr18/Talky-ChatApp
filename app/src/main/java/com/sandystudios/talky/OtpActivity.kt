@@ -95,6 +95,9 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
                 Log.d("TAG", "onVerificationCompleted:$credential")
+
+                btnVerify.isEnabled = false
+                tvResendOtp.isEnabled = false
                 // [START_EXCLUDE silent]
                 verificationInProgress = false
                 // [END_EXCLUDE]
@@ -119,11 +122,15 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                         .setTitle("Invalid phone number!")
                         .setMessage("Kindly re-enter your phone number.")
                         .setPositiveButton(
-                            "OK",
-                            DialogInterface.OnClickListener { dialog, which ->
-                                startActivity(Intent(this@OtpActivity, LoginActivity::class.java))
-                                finish()
-                            })
+                            "OK"
+                        ) { _, _ ->
+                            startActivity(
+                                Intent(
+                                    this@OtpActivity,
+                                    LoginActivity::class.java
+                                ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            )
+                        }
                         .setCancelable(false)
                         .show()
                 } else if (e is FirebaseTooManyRequestsException) {
@@ -162,22 +169,21 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
-
         init()
     }
 
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-
-        // [START_EXCLUDE]
-        if (verificationInProgress) {
-            startPhoneNumberVerification(phoneNumber)
-        }
-        // [END_EXCLUDE]
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        val currentUser = auth.currentUser
+//        updateUI(currentUser)
+//
+//        // [START_EXCLUDE]
+//        if (verificationInProgress) {
+//            startPhoneNumberVerification(phoneNumber)
+//        }
+//        // [END_EXCLUDE]
+//    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -321,7 +327,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
             }
             STATE_VERIFY_SUCCESS -> {
                 // Verification has succeeded, proceed to firebase sign in
-                tvDetail.setText("Verification succeeded!")
+                tvDetail.text = "Verification succeeded!"
 
                 // Set the verification text based on the credential
                 if (cred != null) {
@@ -331,14 +337,23 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                         etOtp.setText(R.string.instant_validation)
                     }
                 }
+                Log.d(TAG, "updateUI: STATE_VERIFY_SUCCESS")
+                showProfileSetupActivity()
             }
             STATE_SIGNIN_FAILED ->
                 // No-op, handled by sign-in check
                 tvDetail.text = "Sign-in failed!"
             STATE_SIGNIN_SUCCESS -> {
+                Log.d(TAG, "updateUI: STATE_SIGNIN_SUCCESS")
+                showProfileSetupActivity()
             }
         } // Np-op, handled by sign-in check
 
+    }
+
+    private fun showProfileSetupActivity() {
+        startActivity(Intent(this, ProfileSetupActivity::class.java))
+        finish()
     }
 
     override fun onClick(view: View) {

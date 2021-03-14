@@ -12,4 +12,7 @@
     <string name="otp_hint">______</string>
     <string name="verify_proceed"><![CDATA[Verify & Proceed]]></string>
     <string name="instant_validation">(instant validation)</string>
+    <string name="profile">Profile</string>
+    <string name="name">Name</string>
+    <string name="about">About</string>
 </resources>

@@ -83,7 +83,6 @@
 
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/tvDetail"
         android:layout_width="wrap_content"
