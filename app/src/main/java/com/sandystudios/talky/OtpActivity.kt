@@ -398,9 +398,9 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
         private const val TAG = "PhoneAuthActivity"
         private const val KEY_VERIFY_IN_PROGRESS = "key_verify_in_progress"
         private const val STATE_INITIALIZED = 1
+        private const val STATE_CODE_SENT = 2
         private const val STATE_VERIFY_FAILED = 3
         private const val STATE_VERIFY_SUCCESS = 4
-        private const val STATE_CODE_SENT = 2
         private const val STATE_SIGNIN_FAILED = 5
         private const val STATE_SIGNIN_SUCCESS = 6
     }

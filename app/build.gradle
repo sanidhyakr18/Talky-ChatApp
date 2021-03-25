@@ -46,6 +46,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     implementation 'com.hbb20:ccp:2.4.5'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

@@ -21,10 +21,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_view_border"
+        app:layout_constraintBottom_toBottomOf="@+id/userImgView"
+        app:layout_constraintEnd_toEndOf="@+id/userImgView"
+        app:layout_constraintStart_toStartOf="@+id/userImgView"
+        app:layout_constraintTop_toTopOf="@+id/userImgView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/userImgView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="48dp"
         android:adjustViewBounds="true"
         android:clickable="true"
         android:focusable="true"
@@ -44,19 +54,34 @@
         app:layout_constraintBottom_toBottomOf="@+id/userImgView"
         app:layout_constraintEnd_toEndOf="@+id/userImgView" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_light"
+        android:textAlignment="center"
+        android:text="@string/please_provide_your_info"
+        android:layout_marginTop="18dp"
+        android:width="320dp"
+        android:textColor="@color/primaryBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="50dp"
         android:layout_marginRight="40dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/text_field_border"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImgView">
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView3">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="18dp"
@@ -84,6 +109,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -115,10 +141,10 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:singleLine="true"
+            android:text="Hey there! I'm new to Talky."
             android:textColor="@color/primaryBlack"
             android:textSize="18sp"
-            app:backgroundTint="@color/backgroundWhite"
-            android:text="Hey there! I'm new to Talky." />
+            app:backgroundTint="@color/backgroundWhite" />
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -130,7 +156,7 @@
         android:layout_marginBottom="90dp"
         android:fontFamily="@font/inter_medium"
         android:padding="16dp"
-        android:text="@string/next"
+        android:text="@string/complete"
         android:textAllCaps="false"
         android:textSize="18sp"
         app:cornerRadius="8dp"
