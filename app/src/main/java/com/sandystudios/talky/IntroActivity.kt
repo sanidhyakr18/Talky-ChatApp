@@ -29,6 +29,7 @@ class IntroActivity : AppCompatActivity() {
                 Intent(this, LoginActivity::class.java)
             )
             finish()
+//            throw RuntimeException("Test Crash")
         }
     }
 }
