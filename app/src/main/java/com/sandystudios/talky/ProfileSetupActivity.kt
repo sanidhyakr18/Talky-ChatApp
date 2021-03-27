@@ -6,13 +6,13 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.android.material.button.MaterialButton
@@ -24,7 +24,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import com.sandystudios.talky.models.User
-import com.sandystudios.talky.models.defaultImageUrl
 
 class ProfileSetupActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -77,24 +76,24 @@ class ProfileSetupActivity : AppCompatActivity(), View.OnClickListener {
     private fun completeSetup() {
         val name = etName.text.toString()
         val about = etAbout.text.toString()
-        if (name.isEmpty()) {
-            Toast.makeText(this, "Name can not be empty!", Toast.LENGTH_SHORT).show()
-        } else if (about.isEmpty()) {
-            Toast.makeText(this, "About can not be empty!", Toast.LENGTH_SHORT).show()
-        } else {
-            btnComplete.isEnabled = false
-            btnEditImage.isClickable = false
-            val user = if (!::downloadUrl.isInitialized) {
-                User(name, auth.uid!!, about)
-            } else {
-                User(name, downloadUrl, downloadUrl/*Needs to thumbnail url*/, auth.uid!!, about)
-            }
-            database.collection("users").document(auth.uid!!).set(user).addOnSuccessListener {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }.addOnFailureListener {
-                Toast.makeText(this, "An error occurred. Please try again later", Toast.LENGTH_SHORT).show()
+        when {
+            name.isEmpty() -> Toast.makeText(this, "Name can not be empty!", Toast.LENGTH_SHORT).show()
+            about.isEmpty() -> Toast.makeText(this, "About can not be empty!", Toast.LENGTH_SHORT).show()
+            else -> {
+                btnComplete.isEnabled = false
+                btnEditImage.isClickable = false
+                val user = if (!::downloadUrl.isInitialized) {
+                    User(name, auth.uid!!, about)
+                } else {
+                    User(name, downloadUrl, downloadUrl/*Needs to thumbnail url*/, auth.uid!!, about)
+                }
+                database.collection("users").document(auth.uid!!).set(user).addOnSuccessListener {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }.addOnFailureListener {
+                    Toast.makeText(this, "An error occurred. Please try again later", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
