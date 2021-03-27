@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primaryBlue">#377DFF</color>
+    <color name="primaryBlueFaded">#0a2351</color>
     <color name="primaryBlack">#243443</color>
     <color name="primaryBlueNight">#15172f</color>
     <color name="backgroundWhite">#F7F7F9</color>

@@ -17,4 +17,6 @@
     <string name="about">About</string>
     <string name="complete">Complete</string>
     <string name="please_provide_your_info">Please provide your name, about and an optional profile photo</string>
+    <string name="chats">Chats</string>
+    <string name="people">People</string>
 </resources>
