@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/backgroundWhite"
-        android:elevation="10dp"
+        android:elevation="4dp"
         android:gravity="center_vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -48,7 +48,7 @@
         app:tabSelectedTextColor="@color/primaryBlue"
         app:tabTextAppearance="@style/TabTextStyle"
         app:tabTextColor="@color/primaryBlack"
-        android:elevation="10dp">
+        android:elevation="4dp">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

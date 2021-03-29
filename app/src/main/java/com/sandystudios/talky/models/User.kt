@@ -4,6 +4,7 @@ const val defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/chatapp
 
 data class User(
     val name: String,
+    val number: String,
     val imageUrl: String,
     val thumbImage: String,
     val deviceToken: String,
@@ -12,11 +13,12 @@ data class User(
     val uid: String
 ) {
     /** Empty [Constructor] for Firebase */
-    constructor() : this("", "", "", "", "", false, "")
+    constructor() : this("", "", "", "", "", "", false, "")
 
-    constructor(name: String, imageUrl: String, thumbImage: String, uid: String, about: String) :
+    constructor(name: String, number: String, imageUrl: String, thumbImage: String, uid: String, about: String) :
             this(
                 name,
+                number,
                 imageUrl,
                 thumbImage,
                 "",
@@ -25,9 +27,10 @@ data class User(
                 online = false
             )
 
-    constructor(name: String, uid: String, about: String) :
+    constructor(name: String, number: String, uid: String, about: String) :
             this(
                 name,
+                number,
                 defaultImageUrl,
                 defaultImageUrl,
                 "",

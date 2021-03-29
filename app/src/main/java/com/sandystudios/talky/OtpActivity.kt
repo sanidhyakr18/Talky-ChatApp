@@ -95,8 +95,8 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                 //     user action.
                 Log.d("TAG", "onVerificationCompleted:$credential")
 
-                btnVerify.isEnabled = false
-                tvResendOtp.isEnabled = false
+//                btnVerify.isEnabled = false
+//                tvResendOtp.isEnabled = false
                 // [START_EXCLUDE silent]
                 verificationInProgress = false
                 // [END_EXCLUDE]
@@ -323,6 +323,8 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
             STATE_VERIFY_FAILED -> {
                 // Verification has failed, show all options
                 tvDetail.text = "OTP verification failed!"
+                btnVerify.isEnabled = true
+                tvResendOtp.isEnabled = true
             }
             STATE_VERIFY_SUCCESS -> {
                 // Verification has succeeded, proceed to firebase sign in
@@ -339,9 +341,12 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                 Log.d(TAG, "updateUI: STATE_VERIFY_SUCCESS")
                 showProfileSetupActivity()
             }
-            STATE_SIGNIN_FAILED ->
+            STATE_SIGNIN_FAILED ->{
                 // No-op, handled by sign-in check
                 tvDetail.text = "Sign-in failed!"
+                btnVerify.isEnabled = true
+                tvResendOtp.isEnabled = true
+            }
             STATE_SIGNIN_SUCCESS -> {
                 Log.d(TAG, "updateUI: STATE_SIGNIN_SUCCESS")
                 showProfileSetupActivity()
@@ -351,7 +356,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showProfileSetupActivity() {
-        startActivity(Intent(this, ProfileSetupActivity::class.java))
+        startActivity(Intent(this, ProfileSetupActivity::class.java).putExtra(PHONE_NUMBER, phoneNumber))
         finish()
     }
 
@@ -359,6 +364,8 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
         when (view.id) {
             R.id.btn_verify -> {
                 val code = etOtp.text.toString()
+                btnVerify.isEnabled = false
+                tvResendOtp.isEnabled = false
                 verifyPhoneNumberWithCode(storedVerificationId, code)
             }
         }

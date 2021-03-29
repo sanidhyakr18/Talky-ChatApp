@@ -28,7 +28,7 @@ import com.sandystudios.talky.models.User
 class ProfileSetupActivity : AppCompatActivity(), View.OnClickListener {
 
     private val userImgView: ShapeableImageView by lazy {
-        findViewById(R.id.userImgView)
+        findViewById(R.id.iv_setup_profile_pic)
     }
 
     private val btnEditImage: MaterialButton by lazy {
@@ -82,10 +82,11 @@ class ProfileSetupActivity : AppCompatActivity(), View.OnClickListener {
             else -> {
                 btnComplete.isEnabled = false
                 btnEditImage.isClickable = false
+                val phoneNumber = intent.getStringExtra(PHONE_NUMBER)!!
                 val user = if (!::downloadUrl.isInitialized) {
-                    User(name, auth.uid!!, about)
+                    User(name, phoneNumber, auth.uid!!, about)
                 } else {
-                    User(name, downloadUrl, downloadUrl/*Needs to thumbnail url*/, auth.uid!!, about)
+                    User(name, phoneNumber, downloadUrl, downloadUrl/*Needs to thumbnail url*/, auth.uid!!, about)
                 }
                 database.collection("users").document(auth.uid!!).set(user).addOnSuccessListener {
                     val intent = Intent(this, MainActivity::class.java)
@@ -107,8 +108,9 @@ class ProfileSetupActivity : AppCompatActivity(), View.OnClickListener {
                     permission,
                     1001
                 ) // GIVE AN INTEGER VALUE FOR PERMISSION_CODE_READ LIKE 1001
+            } else {
+                openGallery()
             }
-            openGallery()
         }
     }
 
@@ -145,12 +147,10 @@ class ProfileSetupActivity : AppCompatActivity(), View.OnClickListener {
                 Log.i("Done uploading", task.result.toString())
                 downloadUrl = task.result.toString()
             }
-            Toast.makeText(this, "Image uploaded successfully!", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(this, "Image uploaded successfully!", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
 //            btnComplete.isEnabled = true
-            Toast.makeText(this, "Upload failed! Check network connection.", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(this, "Image upload failed! Check network connection.", Toast.LENGTH_SHORT).show()
         }
     }
 }
