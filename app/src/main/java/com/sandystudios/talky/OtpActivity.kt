@@ -1,6 +1,5 @@
 package com.sandystudios.talky
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -48,7 +47,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private val tvDetail: TextView by lazy {
-        findViewById(R.id.tvDetail)
+        findViewById(R.id.tv_otp_status)
     }
 
     private lateinit var phoneNumber: String

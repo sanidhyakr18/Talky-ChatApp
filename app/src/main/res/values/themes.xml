@@ -14,6 +14,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/backgroundWhite</item>
         <!-- Customize your theme here. -->
         <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:colorBackground">@color/backgroundWhite</item>
     </style>
 
     <style name="Theme.navigation" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -56,7 +58,7 @@
 
     <style name="TabTextStyle" parent="@android:style/TextAppearance.Widget.TabWidget">
         <item name="android:fontFamily">@font/inter_bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
 </resources>

@@ -8,7 +8,7 @@
     tools:context=".ProfileSetupActivity">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView"
+        android:id="@+id/tv_setup_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -21,17 +21,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView"
+        android:id="@+id/iv_profile_setup__image_border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/image_view_border"
-        app:layout_constraintBottom_toBottomOf="@+id/userImgView"
-        app:layout_constraintEnd_toEndOf="@+id/userImgView"
-        app:layout_constraintStart_toStartOf="@+id/userImgView"
-        app:layout_constraintTop_toTopOf="@+id/userImgView" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_setup_profile_pic"
+        app:layout_constraintEnd_toEndOf="@+id/iv_setup_profile_pic"
+        app:layout_constraintStart_toStartOf="@+id/iv_setup_profile_pic"
+        app:layout_constraintTop_toTopOf="@+id/iv_setup_profile_pic" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/userImgView"
+        android:id="@+id/iv_setup_profile_pic"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="48dp"
@@ -42,7 +42,7 @@
         android:src="@drawable/default_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_setup_profile"
         app:shapeAppearance="@style/RoundedImageView" />
 
     <com.google.android.material.button.MaterialButton
@@ -51,11 +51,11 @@
         android:layout_height="54dp"
         android:background="@drawable/round_button"
         app:icon="@drawable/ic_outline_edit_24"
-        app:layout_constraintBottom_toBottomOf="@+id/userImgView"
-        app:layout_constraintEnd_toEndOf="@+id/userImgView" />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_setup_profile_pic"
+        app:layout_constraintEnd_toEndOf="@+id/iv_setup_profile_pic" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/materialTextView3"
+        android:id="@+id/tv_provide_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_light"
@@ -67,10 +67,10 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_setup_profile_pic" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/ll_setup_profile_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -81,7 +81,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialTextView3">
+        app:layout_constraintTop_toBottomOf="@+id/tv_provide_info">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="18dp"
@@ -109,7 +109,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/ll_setup_profile_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -120,7 +120,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/ll_setup_profile_name">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="18dp"

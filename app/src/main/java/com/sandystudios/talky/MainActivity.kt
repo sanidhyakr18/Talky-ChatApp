@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
@@ -19,11 +22,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val viewPager: ViewPager2 by lazy {
-        findViewById(R.id.viewPager)
+        findViewById(R.id.vp_main)
     }
 
     private val tabs: TabLayout by lazy {
-        findViewById(R.id.tabs)
+        findViewById(R.id.tl_main)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,5 +57,38 @@ class MainActivity : AppCompatActivity() {
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
         findViewById<TextView>(R.id.tv_main_app_name).text = spannable
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_toolbar_menu, menu)
+        val item = menu.findItem(R.id.search)
+        val searchView = item.actionView as SearchView
+        item.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                // TODO: 27-03-2021 write code 
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                // TODO: 27-03-2021 write code 
+                return true
+            }
+
+        })
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (!newText.isNullOrEmpty()) {
+                    // TODO: 27-03-2021 write code 
+                }
+                return true
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
     }
 }

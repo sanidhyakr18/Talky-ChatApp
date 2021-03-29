@@ -13,50 +13,34 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/backgroundWhite"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        android:gravity="center_vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_user_main"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_avatar"
+            app:shapeAppearance="@style/RoundedImageView" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/userImgViewMain"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:adjustViewBounds="true"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/default_avatar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearance="@style/RoundedImageView" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_main_app_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:fontFamily="@font/inter_bold"
-                android:textColor="@color/primaryBlack"
-                android:textSize="24sp"
-                tools:text="Talky." />
-
-        </LinearLayout>
-
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_main_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/primaryBlack"
+            android:textSize="24sp"
+            tools:text="Talky." />
     </com.google.android.material.appbar.MaterialToolbar>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
+        android:id="@+id/tl_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/backgroundWhite"
@@ -79,7 +63,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+        android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
