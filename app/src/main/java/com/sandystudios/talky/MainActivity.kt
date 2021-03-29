@@ -18,7 +18,7 @@ import com.sandystudios.talky.adapters.ScreenSlidePagerAdapter
 class MainActivity : AppCompatActivity() {
 
     private val mainToolbar: MaterialToolbar by lazy {
-        findViewById(R.id.main_toolbar)
+        findViewById(R.id.toolbar_main)
     }
 
     private val viewPager: ViewPager2 by lazy {

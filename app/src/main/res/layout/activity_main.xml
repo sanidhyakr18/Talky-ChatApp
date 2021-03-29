@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/main_toolbar"
+        android:id="@+id/toolbar_main"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/backgroundWhite"

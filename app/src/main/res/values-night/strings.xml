@@ -21,4 +21,8 @@
     <string name="search">Search</string>
     <string name="invite_a_friend">Invite a friend</string>
     <string name="settings">Settings</string>
+    <string name="like_message">like message</string>
+    <string name="emoji">emoji</string>
+    <string name="type_your_message">Type your message</string>
+    <string name="send_message_action">send message action</string>
 </resources>

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter
@@ -18,6 +17,7 @@ import com.firebase.ui.firestore.paging.LoadingState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.sandystudios.talky.ChatActivity
 import com.sandystudios.talky.R
 import com.sandystudios.talky.models.User
 import com.sandystudios.talky.viewholders.DeletedUserViewHolder
@@ -81,7 +81,7 @@ class PeopleFragment : Fragment() {
                 val inflater = layoutInflater
                 return when (viewType) {
                     NORMAL_VIEW_TYPE -> {
-                        UsersViewHolder(inflater.inflate(R.layout.list_item, parent, false))
+                        UsersViewHolder(inflater.inflate(R.layout.list_item_users, parent, false))
                     }
                     else -> DeletedUserViewHolder(
                         inflater.inflate(
@@ -105,14 +105,14 @@ class PeopleFragment : Fragment() {
                         notifyItemRemoved(position)
                     } else {
                         holder.bind(user) { name: String, photo: String, id: String ->
-//                            startActivity(
-//                                ChatActivity.createChatActivity(
-//                                    requireContext(),
-//                                    id,
-//                                    name,
-//                                    photo
-//                                )
-//                            )
+                            startActivity(
+                                ChatActivity.createChatActivity(
+                                    requireContext(),
+                                    id,
+                                    name,
+                                    photo
+                                )
+                            )
                         }
                     }
             }
