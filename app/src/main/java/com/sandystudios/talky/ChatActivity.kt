@@ -22,7 +22,6 @@ class ChatActivity : AppCompatActivity() {
             intent.putExtra(USER_ID, id)
             intent.putExtra(USER_NAME, name)
             intent.putExtra(USER_THUMB_IMAGE, image)
-
             return intent
         }
     }

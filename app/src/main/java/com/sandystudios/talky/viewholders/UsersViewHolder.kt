@@ -22,7 +22,7 @@ class UsersViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
             findViewById<TextView>(R.id.tv_subtitle).text = user.about
 
             val ivUserImage = findViewById<ShapeableImageView>(R.id.iv_user_image)
-            Log.d("DP", user.thumbImage)
+//            Log.d("DP", user.thumbImage)
             Picasso.get()
                 .load(user.thumbImage)
                 .placeholder(R.drawable.default_avatar)
