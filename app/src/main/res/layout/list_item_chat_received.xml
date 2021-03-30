@@ -4,41 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="54dp"
-    android:layout_marginEnd="16dp"
+    android:layout_marginEnd="54dp"
+    android:layout_marginStart="16dp"
     android:clipToPadding="false"
     android:paddingTop="4dp"
     android:paddingBottom="4dp">
 
     <ImageView
-        android:id="@+id/high_five_sent"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:background="@drawable/high_five_background_sent"
+        android:id="@+id/high_five_received"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/high_five_background_received"
         android:contentDescription="@string/like_message"
         android:elevation="6dp"
+        android:scaleX="-1"
         android:src="@drawable/ic_high_five"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cv_sent_message"
-        app:layout_constraintStart_toStartOf="@+id/cv_sent_message"
-        app:tint="@color/primaryBlue" />
+        app:layout_constraintEnd_toEndOf="@+id/cv_received_message"
+        app:layout_constraintStart_toEndOf="@+id/cv_received_message"
+        app:tint="@color/colorAccent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_sent_message"
+        android:id="@+id/cv_received_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="2dp"
-        app:cardBackgroundColor="@color/primaryBlue"
+        app:cardBackgroundColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearance="@style/ChatShapeAppearanceSent">
+        app:shapeAppearance="@style/ChatShapeAppearanceReceived">
 
         <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/fbl_sent_message"
+            android:id="@+id/fbl_received_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -47,20 +48,20 @@
             app:justifyContent="flex_end">
 
             <TextView
-                android:id="@+id/tv_sent_message"
+                android:id="@+id/tv_received_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="6dp"
-                android:textColor="@color/white"
+                android:textColor="@color/primaryBlack"
                 android:textSize="14sp"
                 tools:text="Hello Sanidhya!" />
 
             <TextView
-                android:id="@+id/tv_sent_time"
+                android:id="@+id/tv_received_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:textColor="#A6ffffff"
+                android:textColor="#858585"
                 android:textSize="12sp"
                 tools:text="12:00 AM" />
 

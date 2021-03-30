@@ -62,11 +62,20 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="ChatShapeAppearance">
+    <style name="ChatShapeAppearanceSent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">24dp</item>
         <item name="cornerSizeBottomLeft">24dp</item>
         <item name="cornerSizeBottomRight">8dp</item>
         <item name="cornerSizeTopRight">24dp</item>
     </style>
+
+    <style name="ChatShapeAppearanceReceived">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeBottomRight">24dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+    </style>
+
 </resources>

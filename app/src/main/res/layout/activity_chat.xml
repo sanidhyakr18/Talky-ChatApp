@@ -108,7 +108,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="12dp"
                     android:layout_toEndOf="@id/btn_emoji"
                     android:background="@android:color/white"
                     android:gravity="top|start"
@@ -120,8 +119,11 @@
                     android:maxLength="800"
                     android:paddingTop="18dp"
                     android:paddingBottom="18dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:singleLine="false"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:text="Hey, my name is Sanidhya Kumar." />
             </RelativeLayout>
 
         </com.google.android.material.card.MaterialCardView>
