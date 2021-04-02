@@ -16,9 +16,9 @@
         android:layout_height="20dp"
         android:background="@drawable/high_five_background_sent"
         android:contentDescription="@string/like_message"
-        android:elevation="6dp"
+        android:elevation="2dp"
         android:src="@drawable/ic_high_five"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cv_sent_message"
         app:layout_constraintStart_toStartOf="@+id/cv_sent_message"
@@ -47,21 +47,21 @@
             app:justifyContent="flex_end">
 
             <TextView
-                android:id="@+id/tv_sent_message"
+                android:id="@+id/tv_message_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="6dp"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 tools:text="Hello Sanidhya!" />
 
             <TextView
-                android:id="@+id/tv_sent_time"
+                android:id="@+id/tv_message_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:textColor="#A6ffffff"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 tools:text="12:00 AM" />
 
         </com.google.android.flexbox.FlexboxLayout>

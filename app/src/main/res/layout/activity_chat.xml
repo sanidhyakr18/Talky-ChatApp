@@ -41,7 +41,7 @@
             tools:text="Sanidhya" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_chat_photo"
+            android:id="@+id/iv_chat_image"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:adjustViewBounds="true"
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:layout_toStartOf="@id/btn_send"
-            app:cardCornerRadius="36dp">
+            app:cardCornerRadius="26dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -101,6 +101,8 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="12dp"
                     android:src="@drawable/ic_chat_icons_smile"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:contentDescription="@string/emoji" />
 
                 <com.vanniktech.emoji.EmojiEditText
@@ -116,14 +118,13 @@
                     android:inputType="textMultiLine|textCapSentences|textLongMessage|text"
                     android:lineSpacingExtra="6dp"
                     android:maxHeight="120dp"
-                    android:maxLength="800"
-                    android:paddingTop="18dp"
-                    android:paddingBottom="18dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:singleLine="false"
-                    android:textSize="14sp"
-                    tools:text="Hey, my name is Sanidhya Kumar." />
+                    android:textSize="16sp"
+                    tools:text="Hey, my name is Sanidhya." />
             </RelativeLayout>
 
         </com.google.android.material.card.MaterialCardView>
