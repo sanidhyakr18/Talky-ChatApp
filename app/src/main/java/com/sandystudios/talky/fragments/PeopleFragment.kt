@@ -33,7 +33,7 @@ class PeopleFragment : Fragment() {
 
     private val db by lazy {
         FirebaseFirestore.getInstance().collection("users")
-            .orderBy("name", Query.Direction.ASCENDING)
+            .orderBy("name", Query.Direction.DESCENDING)
     }
 
     private val auth by lazy {

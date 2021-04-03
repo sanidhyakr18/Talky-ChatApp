@@ -5,56 +5,95 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
+import com.sandystudios.talky.ChatActivity
 import com.sandystudios.talky.R
+import com.sandystudios.talky.models.Inbox
+import com.sandystudios.talky.viewholders.ChatViewHolder
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var mAdapter: FirebaseRecyclerAdapter<Inbox, ChatViewHolder>
+    private lateinit var viewManager: RecyclerView.LayoutManager
+
+
+
+    private val mDatabase by lazy {
+        FirebaseDatabase.getInstance()
+    }
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        viewManager = LinearLayoutManager(requireContext())
+        setupAdapter()
         return inflater.inflate(R.layout.fragment_chats, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ChatsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChatsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun setupAdapter() {
+        val baseQuery: Query =
+            mDatabase.reference.child("chats").child(auth.uid!!)
+
+        val options = FirebaseRecyclerOptions.Builder<Inbox>()
+            .setLifecycleOwner(viewLifecycleOwner)
+            .setQuery(baseQuery, Inbox::class.java)
+            .build()
+        // Instantiate Paging Adapter
+        mAdapter = object : FirebaseRecyclerAdapter<Inbox, ChatViewHolder>(options) {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
+                val inflater = layoutInflater
+                return ChatViewHolder(inflater.inflate(R.layout.list_item_users, parent, false))
+            }
+
+            override fun onBindViewHolder(
+                viewHolder: ChatViewHolder,
+                position: Int,
+                inbox: Inbox
+            ) {
+
+                viewHolder.bind(inbox) { name: String, photo: String, id: String ->
+                    startActivity(
+                        ChatActivity.createChatActivity(
+                            requireContext(),
+                            id,
+                            name,
+                            photo
+                        )
+                    )
                 }
             }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mAdapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mAdapter.stopListening()
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getView()!!.findViewById<RecyclerView>(R.id.rv_main).apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = mAdapter
+        }
     }
 }
